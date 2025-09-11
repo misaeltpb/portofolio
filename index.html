@@ -1,504 +1,317 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="logo.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo.jpg">
+  <title>Portofolio Saya</title>
+  <style>
+    /* =====================
+       GLOBAL STYLE
+    ===================== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #242121;
+      color: white;
+    }
+    h1, h2, h3 {
+      margin: 10px 0;
+    }
+    p {
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    img {
+      max-width: 100%; /* gambar menyesuaikan layar */
+      height: auto;
+      border-radius: 8px;
+    }
 
-    <title>Portofolio Saya</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #242121;
-            color: black;
-        }
-        header {
-            background: black;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            background: white;
-            font-size: 1.5em;
-            font-weight: bold;
-            padding: 15px 0;
-        }
-        nav ul li {
-            margin: 0 25px;
-        }
-        nav ul li a {
-            color: black;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            transition: background 0.3s, color 0.3s;
-        }
-        nav ul li a:hover {
-            background: black;
-            color: white;
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-        .project {
-            background: hwb(250 8% 94%);
-            margin: 11px;
-            padding: 55px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px white;
-        }
-        .container {
-            text-align: center;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: white;
-        }
-        p {
-            color: white;
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-        label {
-            width: 100%;
-            text-align: left;
-            font-weight: bold;
-            color: white;
-            margin-top: 10px;
-        }
-        input, textarea {
-            width: 100%;
-            max-width: 100%;
-            padding: 15px;
-            border: none;
-            background-color: white;
-            border-radius: 10px;
-            margin-top: 5px;
-            font-size: 16px;
-        }
-        textarea {
-            height: 120px;
-            resize: none;
-        }
-        .btn {
-            width: 100%;
-            max-width: 100%;
-            padding: 15px;
-            background-color: #1abc9c;
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            background-color: #16a085;
-        }
-        footer {
-  background-color: #0f172a;
-  color: #e2e8f0;
-  padding: 40px 20px;
-  font-family: 'Segoe UI', sans-serif;
-}
+    /* =====================
+       HEADER
+    ===================== */
+    header {
+      background: black;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
+    /* =====================
+       NAVBAR
+    ===================== */
+    nav {
+      background: white;
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 10px 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      background: black;
+      color: white;
+    }
 
-.footer-right {
-  flex: 1;
-  min-width: 250px;
-  margin-bottom: 30px;
-}
+    /* Hamburger menu */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
 
-.footer-left h2 {
-  color: #ffffff;
-  margin-bottom: 15px;
-}
+    /* =====================
+       SECTION
+    ===================== */
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+    .project {
+      background: #2f2f2f;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      text-align: center;
+      max-width: 800px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-.footer-left p {
-  font-size: 15px;
-  margin: 6px 0;
-}
+    /* =====================
+       FORM
+    ===================== */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    label {
+      width: 100%;
+      text-align: left;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      background: #1abc9c;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #16a085;
+    }
 
-.footer-right h3 {
-  color: #ffffff;
-  margin-bottom: 15px;
-}
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 30px 20px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .footer-container div {
+      flex: 1;
+      min-width: 220px;
+      margin: 10px;
+    }
+    .footer-credit {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    .footer-credit a {
+      color: #0ea5e9;
+      text-decoration: none;
+    }
+    .footer-credit a:hover {
+      text-decoration: underline;
+    }
 
-.footer-right a {
-  display: block;
-  color: #cbd5e1;
-  margin-bottom: 10px;
-  text-decoration: none;
-}
-
-.footer-right a:hover {
-  color: #38bdf8;
-  text-decoration: underline;
-}
-
-.footer-social {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.footer-social a {
-  color: #cbd5e1;
-  font-size: 22px;
-  margin: 0 15px;
-  display: inline-block;
-  transition: color 0.3s ease;
-}
-
-.footer-social a:hover {
-  color: #38bdf8;
-}
-
-.footer-credit {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-.footer-credit a {
-  color: #0ea5e9;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.footer-credit a:hover {
-  text-decoration: underline;
-}
-
-
-
-
-        body {
-            transition: background-color 0.3s, color 0.3s;
-            background-color: white;
-            color: black;
-        }
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .toggle {
-            width: 60px;
-            height: 30px;
-            background-color: lightgray;
-            border-radius: 30px;
-            position: relative;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
-        .toggle:before {
-            content: '';
-            width: 28px;
-            height: 28px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            transition: transform 0.3s;
-        }
-    </style>
-    
+    /* =====================
+       RESPONSIVE
+    ===================== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; /* default: disembunyikan */
+        flex-direction: column;
+        text-align: center;
+        background: white;
+        padding: 10px 0;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        color: black;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      .project {
+        padding: 15px;
+      }
+    }
+    @media (max-width: 480px) {
+      header p {
+        font-size: 14px;
+      }
+      p {
+        font-size: 14px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="toggle-container" id="toggle">
-    </div>
 
-    <script>
-        document.body.classList.add('dark-mode');
-    </script>
-    
-    <header>
-        <h1>Misael Elul Tampubolon</h1>
-        <p>Mahasiswa D3 Teknologi Komputer</p>
-    </header>
-    <nav>
-        <b><b></b>MISAEL TAMPUBOLON</b></p>
-        <ul>
-            <li><a href="#about">Tentang Saya</a></li>
-            <li><a href="#projects">Proyek</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-    </nav>
-    <section id="about">
-      <hr style="border: 0; height: 1px; background-color: #ccc;">
-        <h2>Tentang Saya</h2>
-        <hr style="border: 0; height: 1px; background-color: #ccc;">
-        <img src="foto depan.jpg" alt="Foto Profil" width="600" height="600"></b>
-       <b> <p style="font-size: 40px;">
-          Hai, saya Misael Tampubolon, seorang Developer Pemula yang memiliki ketertarikan besar di bidan teknologi.
-      </p>
-        <p>Program Studi: D3 Teknologi Komputer</p>
-            <p>Asal Kampus: Institut Teknologi Komputer</p>
-            <p>Jenis Kelamin: Laki-Laki</p>
-        
-    </section>
-    <hr style="border: 0; height: 1px; background-color: #ccc;">
+  <!-- HEADER -->
+  <header>
+    <h1>Misael Elul Tampubolon</h1>
+    <p>Mahasiswa D3 Teknologi Komputer</p>
+  </header>
 
+  <!-- NAVBAR -->
+  <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="menu">
+      <li><a href="#about">Tentang Saya</a></li>
+      <li><a href="#projects">Proyek</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
 
-    <section class="bg-[#1a1a1a] text-white py-12 px-6">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-10">Yang Bisa Saya lakukan</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <hr style="border: 0; height: 1px; background-color: #ccc;">
-          
-          <!-- DevOps -->
-          <div class="bg-[#242424] p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
-            <div class="flex items-start gap-4">
-              <div class="text-yellow-400 text-3xl">🛠️</div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">DevOps</h3>
-                <p class="text-gray-300">Mengoptimalkan proses pengembangan perangkat lunak melalui pendekatan kolaboratif antara tim pengembangan dan operasi, memanfaatkan otomatisasi, jalur CI/CD, dan alat-alat modern seperti Docker dan Kubernetes.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- IoT -->
-          <div class="bg-[#242424] p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
-            <div class="flex items-start gap-4">
-              <div class="text-yellow-400 text-3xl">💡</div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">IoT (Internet Of Things)</h3>
-                <p class="text-gray-300">Mengintegrasikan perangkat fisik dengan internet untuk memungkinkan pengumpulan dan kontrol data secara real-time, menciptakan solusi cerdas untuk industri seperti perawatan kesehatan, manufaktur, dan kota pintar.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Cloud Computing -->
-          <div class="bg-[#242424] p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
-            <div class="flex items-start gap-4">
-              <div class="text-yellow-400 text-3xl">☁️</div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Cloud Computing</h3>
-                <p class="text-gray-300">Mengelola layanan komputasi berbasis cloud seperti penyimpanan, server, dan aplikasi menggunakan model seperti IaaS, PaaS, dan SaaS untuk meningkatkan efisiensi dan skalabilitas.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Embedded Systems -->
-          <div class="bg-[#242424] p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
-            <div class="flex items-start gap-4">
-              <div class="text-yellow-400 text-3xl">🔧</div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Embedded Systems</h3>
-                <p class="text-gray-300">Merancang sistem tertanam yang menggabungkan perangkat keras dan perangkat lunak untuk melakukan tugas-tugas tertentu, memastikan fungsionalitas waktu nyata dalam perangkat seperti peralatan pintar dan pengontrol industri.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Networking -->
-          <div class="bg-[#242424] p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
-            <div class="flex items-start gap-4">
-              <div class="text-yellow-400 text-3xl">🌐</div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Networking</h3>
-                <p class="text-gray-300">Membangun dan mengelola infrastruktur jaringan untuk menghubungkan perangkat, memastikan komunikasi data yang aman dan efisien melalui protokol seperti TCP/IP dan HTTP.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Web Development -->
-          <div class="bg-[#242424] p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
-            <div class="flex items-start gap-4">
-              <div class="text-yellow-400 text-3xl">💻</div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Web Development</h3>
-                <p class="text-gray-300">Membuat situs web interaktif dan responsif dengan menguasai teknologi frontend (HTML, CSS, JavaScript) dan teknologi backend (Node.js, PHP, Python), memberikan pengalaman pengguna yang optimal.</p>
-              </div>
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
-    
-      
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <img src="foto depan.jpg" alt="Foto Profil">
+    <p>Hai, saya Misael Tampubolon, seorang Developer Pemula yang memiliki ketertarikan besar di bidang teknologi.</p>
+    <p>Program Studi: D3 Teknologi Komputer</p>
+    <p>Asal Kampus: Institut Teknologi Komputer</p>
+    <p>Jenis Kelamin: Laki-Laki</p>
   </section>
-  <hr style="border: 0; height: 1px; background-color: #ccc;">
 
-    <section id="about">
-        <h2>Tingkat Pendidikan</h2>
-        <hr style="border: 0; height: 1px; background-color: #ccc;">
-        <p></p>
-        <p></p>
-        <p></p>
-        <div class="project">
-            <h3>DEL INSTITUTE OF TECHNOLOGY</h3>
-            <img src="gambar it del.jpg" alt="Foto IT DEL" width="450">
-            <P></P>
-            <b><b></b>science</b></p>
-            <p>2019-2022</p>
-        </div>
-        <div class="project">
-            <h3>SMA N 1 SIBORONG-BORONG</h3>
-            <img src="foto sma satu sbb.jpg" alt="Foto SMA 1" width="450">
-            <P></P>
-            <b><b></b>computer engineering</b></p>
-            <p>2023-2026</p>
-        </div>
-    <section id="projects">
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Proyek</h2>
+    <div class="project">
+      <h3>PA1</h3>
+      <p>Proyek untuk memesan makanan via QR Code.</p>
+      <img src="Picture1.png" alt="Foto Proyek PA1">
+    </div>
+    <div class="project">
+      <h3>Sistem Tertanam</h3>
+      <p>Smart trash can berbasis Arduino untuk efisiensi pengelolaan sampah.</p>
+      <img src="sistan.jpg" alt="Foto Proyek Sistan">
+    </div>
+    <div class="project">
+      <h3>PA2</h3>
+      <p>Sistem Pemberian Pakan & Monitor Kualitas Air Peternakan Lele berbasis energi surya.</p>
+      <img src="desain pa2.jpg" alt="Foto Proyek PA2">
+    </div>
+  </section>
 
-      <hr style="border: 0; height: 1px; background-color: #ccc;">
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Hubungi Saya</h2>
+      <p>Silakan hubungi saya untuk kolaborasi atau pertanyaan lebih lanjut.</p>
+      <form action="" method="POST">
+        <label>Nama</label>
+        <input type="text" name="nama" placeholder="Masukkan nama Anda" required>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Masukkan email Anda" required>
+        <label>Pesan</label>
+        <textarea name="pesan" placeholder="Tulis pesan Anda" required></textarea>
+        <button class="btn" type="submit">Kirim</button>
+      </form>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>Misael Elul Tampubolon</h3>
+        <p>Email: misaeltampubolon9@gmail.com</p>
+        <p>Alamat: SIBORONG-BORONG, Tapanuli Utara, Sumatera Utara, Indonesia</p>
+      </div>
+      <div>
+        <h3>Tautan</h3>
+        <p><a href="#about">Tentang Saya</a></p>
+        <p><a href="#projects">Proyek Saya</a></p>
+        <p><a href="#contact">Kontak</a></p>
+        <p><a href="https://www.linkedin.com/in/misael-tampubolon-4a9042298/" target="_blank">LinkedIn</a></p>
+        <p><a href="https://www.instagram.com/misaeltpb/" target="_blank">Instagram</a></p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <p>Dibuat dengan ❤️ oleh Misael Elul Tampubolon © 2025</p>
+    </div>
+  </footer>
 
-        <h2>Proyek</h2>
-        <hr style="border: 0; height: 1px; background-color: #ccc;">
-        <p></p>
-        <p></p>
-        <p></p>
-        <div class="project">
-            <h3>PA1</h3>
-            <p>Proyek ini bertujuan untuk mempermudah client memesan makanan dan minuman di restaurant dengan menggunakan qrcode.</p>
-            <img src="Picture1.png" alt="Foto Proyek PA1" width="450">
-            <p>Halaman informasi tentang restaurant</p>
-            <img src="Picture2.png" alt="Foto proyek PA1" width="450">
-            <p>Squence Diagram</p>
-            <img src="squence pa1.jpg" alt="Foto proyek PA1" width="450">
-        </div>
-        <div class="project">
-            <h3><B>SISTEM TERTANAM</B></h3>
-            <p>Tujuan dari penelitian dan pengembangan sistem smart trash can berbasis Arduino ini adalah sebagai berikut: 
-                <p>1.	Meningkatkan Efisiensi Pengelolaan Sampah 
-                Mengurangi pengecekan manual dengan sensor yang memonitor tingkat kepenuhan tong sampah, sehingga pengangkutan lebih tepat sasaran.</p>
-                <p>2.	Menghemat Waktu dan Biaya Operasional 
-                Notifikasi otomatis membantu mengurangi frekuensi pengosongan yang tidak perlu, menekan biaya bahan bakar dan tenaga kerja.</p>
-                <p>3.	Memberikan Pengalaman Pengguna yang Mudah dan Nyaman 
-                Sensor gerak pada tutup memungkinkan pembuangan sampah tanpa sentuhan, membantu saat tangan penuh atau kotor.</p>
-                <p>4.Mendukung Program Lingkungan yang Lebih Bersih 
-                Diharapkan menjadi solusi praktis bagi pengelolaan sampah di berbagai area, mendukung kebersihan dan lingkungan yang lebih sehat. 
-                </p>
-            <img src="sistan.jpg" alt="Foto Proyek Sistan" width="450">
-            <p>Gambar proyek sistem tertanam secara langsung</p>
-            <img src="foto sistan.jpg" alt="Foto Proyek Sistan" width="450">
-            <p>Flow chart sistem</p>
-            <img src="flowchart sistan.jpg" alt="Foto Proyek Sistan" width="450">
-        </div>
-        <div class="project">
-            <h3><P>PEMROGRAMAN BAHASA C</P></h3>
-            <p>Proyek ini bertujuan untuk Pengguna dapat memilih untuk output hasil ke dalam format TXT, mend
-                apatkan penjelasan tentang CRC, atau keluar dari program. CRC adalah metode penting untuk mendeteksi dan memperbaiki kesalahan dalam data, serta memastikan integritas data saat dikirimkan. 
-                Program ini memudahkan pengguna untuk memahami konsep CRC secara praktis..</p>
-            <img src="daspro.png" alt="Foto Proyek Daspro" width="450">
-        </div>
-        <div class="project">
-            <h3><B>PA2</B></h3>
-            <p>Tujuan dari pengembangan Sistem Pemberian Pakan dan Monitor Kualitas Air Peternakan Lele Portable yang Menggunakan Energi Terbarukan (Panel Surya) adalah sebagai berikut:
-              <p>1.	Menciptakan sistem otomatis yang dapat mengatur pemberian pakan secara terjadwal dan sesuai kebutuhan ikan, sehingga meningkatkan efisiensi penggunaan pakan dan memastikan pertumbuhan ikan yang lebih optimal.</p>
-              <p>2.	Mengembangkan sistem pemantauan kualitas air secara real-time dengan sensor yang dapat mendeteksi parameter penting seperti pH, suhu, dan kadar oksigen terlarut, guna menjaga kondisi air tetap dalam batas optimal.</p>
-              <p>3.	Mengurangi ketergantungan pada metode manual dalam pemberian pakan dan pemantauan kualitas air, sehingga menghemat tenaga kerja dan mengurangi risiko kesalahan manusia.</p>
-              <p>4.	Memanfaatkan energi terbarukan dari panel surya untuk mengoperasikan sistem, sehingga dapat digunakan secara mandiri tanpa bergantung pada listrik PLN, menjadikannya lebih hemat biaya dan ramah lingkungan.</p>
-              </p>
-              <p>Desain Proyek</p>
-            <img src="desain pa2.jpg" alt="Foto Proyek Sistan" width="450">
-            <p></p>
-            <img src="desain pa2 (2).jpg" alt="Foto Proyek Sistan" width="450">
-            <p>Use Case diagram</p>
-            <img src="use case diagram pa2.jpg" alt="Foto Proyek Sistan" width="450">
-        </div>
-        
-    </section>
-        
-    </section>
-
-    <hr style="border: 0; height: 1px; background-color: #ccc;">
-
-    <section id="contact">
-        <div class="container">
-            <h1>Hubungi Saya</h1>
-            <p>Saya sangat senang mendengar dari Anda. Silakan hubungi saya untuk kolaborasi atau pertanyaan lebih lanjut.</p>
-            <form action="" method="POST">
-              <label>Nama</label>
-              <input type="text" name="nama" placeholder="Masukkan nama Anda" required />
-            
-              <label>Email</label>
-              <input type="email" name="email" placeholder="Masukkan email Anda" required />
-            
-              <label>Pesan</label>
-              <textarea name="pesan" placeholder="Tulis pesan Anda" required></textarea>
-              <p></p>
-              <button type="submit" title="Klik untuk mengirim pesan" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-                Kirim
-            </button>
-            
-          </form>
-            
-        </div>
-    </section>
-    
-    <hr style="border: 0; height: 1px; background-color: #ccc;">
-    <footer>
-        
-        <div class="footer-container">
-          <div class="footer-info">
-            <h2>Misael Elul Tampubolon</h2>
-            <p>Email: misaeltampubolon9@gmail.com</p>
-            <p>Alamat: SIBORONG-BORONG, Tapanuli utara, Sumatera Utara, Indonsia</p>
-          </div>
-      
-          <div class="footer-container">
-            <h3>Tautan</h3>
-            <ul>
-              <li><a href="#about">Tentang Saya</a></li>
-              <li><a href="#projects">Proyek saya</a></li>
-              <li><a href="#contact">Kontak</a></li>
-              <li>
-                <a href="https://www.linkedin.com/in/misael-tampubolon-4a9042298/" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/misaeltpb/" target="_blank" rel="noopener noreferrer">
-                  Instagram
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      
-        <div class="footer-credit">
-          <p>Dibuat dengan ❤️ oleh Misael Elul Tampubolon © 2025</p>
-        </div>
-      </footer>
-      
-      <!-- Font Awesome CDN untuk ikon sosial -->
-      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-      
-      
-      <!-- Font Awesome CDN -->
-      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-      
-      
+  <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+  </script>
+</body>
 </html>
