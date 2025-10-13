@@ -14,17 +14,20 @@
       color: white;
       transition: background-color 0.3s, color 0.3s;
     }
+
     header {
       background: black;
       color: white;
       padding: 20px;
       text-align: center;
     }
+
     nav {
       background: white;
       text-align: center;
       padding: 15px 0;
     }
+
     nav ul {
       list-style: none;
       padding: 0;
@@ -33,9 +36,11 @@
       flex-wrap: wrap;
       margin: 0;
     }
+
     nav ul li {
-      margin: 0 20px;
+      margin: 8px 15px;
     }
+
     nav ul li a {
       color: black;
       text-decoration: none;
@@ -43,15 +48,19 @@
       padding: 8px 15px;
       border-radius: 8px;
       transition: 0.3s;
+      display: inline-block;
     }
+
     nav ul li a:hover {
       background: black;
       color: white;
     }
+
     section {
-      padding: 30px;
+      padding: 30px 20px;
       text-align: center;
     }
+
     .project {
       background: #2f2f2f;
       margin: 20px auto;
@@ -60,40 +69,51 @@
       box-shadow: 0 0 10px rgba(255,255,255,0.2);
       max-width: 800px;
     }
+
     img {
       max-width: 100%;
+      height: auto;
       border-radius: 8px;
       margin: 10px 0;
     }
+
     h1, h2, h3 {
       margin: 10px 0;
     }
+
     hr {
       border: 0;
       height: 1px;
       background-color: #ccc;
       margin: 20px 0;
     }
+
     .container {
       max-width: 600px;
       margin: auto;
       text-align: center;
     }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
+
     input, textarea {
       padding: 12px;
       border: none;
       border-radius: 8px;
       font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
     }
+
     textarea {
       resize: none;
       height: 120px;
     }
+
     button {
       background: #1abc9c;
       border: none;
@@ -103,14 +123,17 @@
       border-radius: 50px;
       cursor: pointer;
     }
+
     button:hover {
       background: #16a085;
     }
+
     footer {
       background: #0f172a;
       color: #e2e8f0;
       padding: 30px 20px;
     }
+
     .footer-container {
       display: flex;
       flex-wrap: wrap;
@@ -118,36 +141,94 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .footer-container div {
       flex: 1;
       min-width: 220px;
       margin: 10px;
     }
+
     .footer-credit {
       text-align: center;
       margin-top: 20px;
       font-size: 14px;
       color: #94a3b8;
     }
+
     .footer-credit a {
       color: #0ea5e9;
       text-decoration: none;
     }
+
     .judul {
-      font-size: 50px;
+      font-size: 40px;
       font-weight: bold;
       color: white;
       text-align: center;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       margin: 20px 0;
     }
+
     .footer-credit a:hover {
       text-decoration: underline;
     }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .judul {
+        font-size: 32px;
+      }
+    }
+
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      section {
+        padding: 20px 10px;
+      }
+
+      .judul {
+        font-size: 28px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      .judul {
+        font-size: 24px;
+      }
+
+      nav ul li a {
+        padding: 6px 10px;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px;
       }
     }
   </style>
@@ -199,12 +280,12 @@
     <div class="project">
       <h3 class="judul">Del Institute of Technology</h3>
       <p>D3 Computer Technology (2023 - 2026)</p>
-      <img src="gambar it del.jpg" alt="IT Del Photo" width="400">
+      <img src="gambar it del.jpg" alt="IT Del Photo">
     </div>
     <div class="project">
       <h3 class="judul">SMA Negeri 1 Siborong-Borong</h3>
       <p>Science Major (2019 - 2022)</p>
-      <img src="foto sma satu sbb.jpg" alt="SMA 1 Photo" width="400">
+      <img src="foto sma satu sbb.jpg" alt="SMA 1 Photo">
     </div>
   </section>
 
@@ -245,62 +326,62 @@
     <div class="project">
       <h3 class="judul">LEARN BASIC AI</h3>
       <p>Studied the basic concepts of Artificial Intelligence, including machine learning algorithms, training data, and simple AI applications in daily life.</p>
-      <img src="belajar dasar ai.png" alt="AI Certificate" width="500">
+      <img src="belajar dasar ai.png" alt="AI Certificate">
     </div>
     <div class="project">
       <h3 class="judul">LEARN BASIC DEVOPS</h3>
       <p>Understood the collaboration between developers and operations teams, and learned CI/CD, containerization, and automated deployment processes.</p>
-      <img src="belajar dasar dasar devops.png" alt="DevOps Certificate" width="500">
+      <img src="belajar dasar dasar devops.png" alt="DevOps Certificate">
     </div>
     <div class="project">
       <h3 class="judul">CLOUD SECURITY FUNDAMENTALS</h3>
       <p>Learned cloud-based system security basics, including data protection, encryption, access control, and best practices for cloud safety.</p>
-      <img src="cloud scurity fudumentals.png" alt="Cloud Security Certificate" width="500">
+      <img src="cloud scurity fudumentals.png" alt="Cloud Security Certificate">
     </div>
     <div class="project">
       <h3 class="judul">COMPUTING TRACK</h3>
       <p>Participated in computer technology training covering hardware, software, networking, and cybersecurity to strengthen computing fundamentals.</p>
-      <img src="computing track.png" alt="Computing Track Certificate" width="500">
+      <img src="computing track.png" alt="Computing Track Certificate">
     </div>
     <div class="project">
       <h3 class="judul">CYBER SECURITY FUNDAMENTALS BOOTCAMP</h3>
       <p>Learned basic cybersecurity concepts, types of digital threats, ethical hacking techniques, and methods to protect systems from attacks.</p>
-      <img src="cyberscurity fudumentals.png" alt="Cyber Security Certificate" width="500">
+      <img src="cyberscurity fudumentals.png" alt="Cyber Security Certificate">
     </div>
     <div class="project">
       <h3 class="judul">INTRO TO DATA ANALYTICS</h3>
       <p>Introduced to data analysis, dataset processing, visualization, and data-driven decision-making using modern analytical tools.</p>
-      <img src="intro to data analytics.png" alt="Data Analytics Certificate" width="500">
+      <img src="intro to data analytics.png" alt="Data Analytics Certificate">
     </div>
     <div class="project">
       <h3 class="judul">INTRO TO DIGITAL MARKETING</h3>
       <p>Learned digital marketing strategies through social media, SEO, and online campaigns to increase product reach and engagement.</p>
-      <img src="intro to digital marketing.png" alt="Digital Marketing Certificate" width="500">
+      <img src="intro to digital marketing.png" alt="Digital Marketing Certificate">
     </div>
     <div class="project">
       <h3 class="judul">INTRO TO SOFTWARE ENGINEERING</h3>
       <p>Studied professional software development processes using agile methodology, version control (Git), and modern project management.</p>
-      <img src="intro to software enginer.png" alt="Software Engineering Certificate" width="500">
+      <img src="intro to software enginer.png" alt="Software Engineering Certificate">
     </div>
     <div class="project">
       <h3 class="judul">SOFTWARE ENGINEER</h3>
       <p>Learned basic cybersecurity concepts, common attacks, and defense techniques using ethical hacking tools.</p>
-      <img src="intro to softwareenginerrrrr.png" alt="Software Engineer Certificate" width="500">
+      <img src="intro to softwareenginerrrrr.png" alt="Software Engineer Certificate">
     </div>
     <div class="project">
       <h3 class="judul">KNOW THE CYBER SECURITY ANALYST PROFESSION</h3>
       <p>Discovered the roles and responsibilities of a cybersecurity analyst in detecting, analyzing, and responding to threats to networks and data.</p>
-      <img src="kenal profesi cyber security analyst.png" alt="Cyber Security Analyst Certificate" width="500">
+      <img src="kenal profesi cyber security analyst.png" alt="Cyber Security Analyst Certificate">
     </div>
     <div class="project">
       <h3 class="judul">START PROGRAMMING WITH C</h3>
       <p>Learned the basics of programming logic using C language, including variables, conditions, loops, and functions to build simple applications.</p>
-      <img src="memulai pemrograman dengan c.png" alt="C Programming Certificate" width="500">
+      <img src="memulai pemrograman dengan c.png" alt="C Programming Certificate">
     </div>
     <div class="project">
       <h3 class="judul">NETWORK SECURITY FUNDAMENTALS</h3>
       <p>Learned the fundamentals of network security, data encryption, firewall management, and attack mitigation such as sniffing, spoofing, and DDoS.</p>
-      <img src="network scurity fudumental.png" alt="Network Security Certificate" width="500">
+      <img src="network scurity fudumental.png" alt="Network Security Certificate">
     </div>
   </section>
 
