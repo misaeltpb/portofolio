@@ -1,236 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="logo.jpg">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="logo.jpg"/>
+  <title>Misael Elul Tampubolon — Cyber Security & Network Engineer Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #242121;
-      color: white;
-      transition: background-color 0.3s, color 0.3s;
+    /* ---------- Reset & Base ---------- */
+    :root{
+      --bg:#0b0b0d;
+      --card:#1f1f21;
+      --muted:#94a3b8;
+      --accent:#1abc9c;
+      --accent-2:#0ea5e9;
+      --text:#e6eef6;
+      --glass: rgba(255,255,255,0.03);
+    }
+    [data-theme="light"] {
+      --bg:#fafafa;
+      --card:#ffffff;
+      --muted:#475569;
+      --accent:#0ea5e9;
+      --accent-2:#10b981;
+      --text:#0f172a;
+      --glass: rgba(15,23,42,0.03);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      transition: background 0.25s, color 0.25s;
+      scroll-behavior: smooth;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ---------- Header & Navbar ---------- */
+    header{
+      padding:32px 20px;
+      text-align:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      backdrop-filter: blur(4px);
+    }
+    header h1{font-size:28px;letter-spacing:0.6px}
+    header p{opacity:0.9;margin-top:8px;color:var(--muted)}
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background:var(--card);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 18px;
+      gap:10px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.5);
+    }
+    .nav-left{display:flex;align-items:center;gap:12px}
+    .brand{
+      display:flex;gap:10px;align-items:center;
+    }
+    .brand img{width:40px;height:40px;border-radius:8px;object-fit:cover}
+    .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .nav-links a{
+      padding:8px 12px;border-radius:8px;font-weight:600;color:var(--text);
+      transition:all .18s;
+      background:transparent;
+    }
+    .nav-links a:hover{background:var(--glass);transform:translateY(-2px)}
+    .nav-ctas{display:flex;gap:8px;align-items:center}
+    .btn {
+      background:var(--accent);
+      color: #fff;
+      border:none;padding:8px 14px;border-radius:999px;font-weight:700;
+      cursor:pointer;transition:transform .15s, opacity .15s;
+    }
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+    .btn:active{transform:scale(.98)}
+    .icon-btn{background:transparent;border:0;padding:6px;border-radius:8px;cursor:pointer}
+
+    /* ---------- Layout ---------- */
+    main{max-width:1100px;margin:28px auto;padding:0 18px}
+    section{padding:28px 0}
+    h2{font-size:22px;margin-bottom:14px}
+    .grid{
+      display:grid;
+      gap:16px;
     }
 
-    header {
-      background: black;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    /* ---------- About ---------- */
+    .about{
+      display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+      background:var(--card);padding:18px;border-radius:12px;
+      box-shadow:0 6px 16px rgba(2,6,23,0.45);
     }
+    .about .photo{flex:0 0 300px;border-radius:12px;overflow:hidden}
+    .about .content{flex:1;min-width:220px}
+    .about p{margin:8px 0;color:var(--muted)}
 
-    nav {
-      background: white;
-      text-align: center;
-      padding: 15px 0;
+    /* ---------- Skills ---------- */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .skill-card{background:var(--glass);padding:14px;border-radius:10px}
+    .skill-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .bar{
+      height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden;
     }
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px;width:0%}
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0;
-    }
+    /* ---------- Projects & Certificates gallery ---------- */
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 14px rgba(2,6,23,0.45)}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .project-card img{border-radius:8px;cursor:pointer}
+    .project-card h3{margin:8px 0;font-size:18px}
+    .project-card p{color:var(--muted);font-size:14px}
 
-    nav ul li {
-      margin: 8px 15px;
-    }
+    /* ---------- Certificates: compact grid ---------- */
+    .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .cert-card{display:flex;flex-direction:column;gap:8px;align-items:center;padding:12px;text-align:center}
 
-    nav ul li a {
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 8px;
-      transition: 0.3s;
-      display: inline-block;
-    }
+    /* ---------- Contact ---------- */
+    .contact-wrap {
+  max-width: 640px;
+  margin: auto;
+}
 
-    nav ul li a:hover {
-      background: black;
-      color: white;
-    }
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-    section {
-      padding: 30px 20px;
-      text-align: center;
-    }
+/* Label Section warna tipis */
+label {
+  font-weight: 600;
+  color: #333;
+}
 
-    .project {
-      background: #2f2f2f;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-      max-width: 800px;
-    }
+/* Input & Textarea */
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f8fafc; /* Latar abu muda */
+  color: #333;
+  transition: 0.25s ease-in-out;
+}
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 10px 0;
-    }
+/* Efek saat hover */
+input:hover, textarea:hover {
+  background: #eef2f7;
+  border-color: #bbb;
+}
 
-    h1, h2, h3 {
-      margin: 10px 0;
-    }
+/* Efek saat focus */
+input:focus, textarea:focus {
+  background: #fff;
+  border-color: #4aa8ff;
+  box-shadow: 0 0 6px rgba(80, 160, 255, 0.5);
+  outline: none;
+}
 
-    hr {
-      border: 0;
-      height: 1px;
-      background-color: #ccc;
-      margin: 20px 0;
-    }
+/* Textarea */
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
 
-    .container {
-      max-width: 600px;
-      margin: auto;
-      text-align: center;
-    }
+/* Button area */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+/* Pesan notif */
+.msg {
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+  display: none;
+}
 
-    input, textarea {
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      width: 100%;
-      box-sizing: border-box;
-    }
 
-    textarea {
-      resize: none;
-      height: 120px;
-    }
-
-    button {
-      background: #1abc9c;
-      border: none;
-      padding: 15px;
-      color: white;
-      font-size: 16px;
-      border-radius: 50px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #16a085;
-    }
-
+    /* ---------- Footer ---------- */
     footer {
-      background: #0f172a;
-      color: #e2e8f0;
-      padding: 30px 20px;
+  margin-top: 28px;
+  padding: 30px 20px;
+
+  /* Background pakai variable */
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--footer-text);
+
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.08);
+}
+
+.footer-inner {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+footer a {
+  color: var(--footer-link);
+  font-weight: 600;
+  transition: 0.25s ease-in-out;
+}
+
+footer a:hover {
+  color: var(--footer-link-hover);
+  text-shadow: 0 0 6px rgba(0, 120, 255, 0.4);
+}
+
+
+.footer-inner {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* ✨ Teks utama menyala halus */
+footer p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+/* ✨ Link dibuat lebih menyala & modern */
+footer a {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: 0.25s ease-in-out;
+}
+
+footer a:hover {
+  color: #0056cc;
+  text-shadow: 0 0 6px rgba(0, 120, 255, 0.4);
+}
+
+/* Jika ada list */
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+}
+
+
+    /* ---------- Modal Lightbox ---------- */
+    .lightbox{
+      position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:80;padding:20px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92%;max-height:92%;border-radius:8px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:800px){
+      .about{flex-direction:column}
+      .nav-links{display:none}
+    }
+    @media (min-width:801px){
+      .mobile-nav-toggle{display:none}
     }
 
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .footer-container div {
-      flex: 1;
-      min-width: 220px;
-      margin: 10px;
-    }
-
-    .footer-credit {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #94a3b8;
-    }
-
-    .footer-credit a {
-      color: #0ea5e9;
-      text-decoration: none;
-    }
-
-    .judul {
-      font-size: 40px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      letter-spacing: 1.5px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      margin: 20px 0;
-    }
-
-    .footer-credit a:hover {
-      text-decoration: underline;
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 1024px) {
-      .judul {
-        font-size: 32px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        padding: 0;
-      }
-
-      nav ul li {
-        margin: 10px 0;
-      }
-
-      section {
-        padding: 20px 10px;
-      }
-
-      .judul {
-        font-size: 28px;
-      }
-
-      header h1 {
-        font-size: 24px;
-      }
-
-      header p {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        font-size: 14px;
-      }
-
-      header h1 {
-        font-size: 20px;
-      }
-
-      .judul {
-        font-size: 24px;
-      }
-
-      nav ul li a {
-        padding: 6px 10px;
-        font-size: 14px;
-      }
-
-      button {
-        font-size: 14px;
-        padding: 10px;
-      }
-    }
+    /* ---------- Tiny helpers ---------- */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    .small{font-size:13px;color:var(--muted)}
   </style>
 </head>
 <body>
@@ -238,191 +299,324 @@
   <!-- HEADER -->
   <header>
     <h1>Misael Elul Tampubolon</h1>
-    <p>D3 Computer Technology Student</p>
+    <p>Final year — D3 Computer Technology, Del Institute of Technology</p>
   </header>
 
-  <!-- NAVBAR -->
-  <nav>
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certificates">Bootcamp Certificates</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <div class="brand">
+        <img src="logo.jpg" alt="Logo"/>
+        <div>
+          <div style="font-weight:800">Misael</div>
+          <div class="small">Developer • IoT • DevOps • CyberSec</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-ctas">
+      <button class="btn secondary" id="themeToggle" title="Toggle theme">Toggle Theme</button>
+      <a class="btn" href="CV_Misael Tampubolon.pdf" download>Download CV</a>
+      <button class="icon-btn mobile-nav-toggle" aria-label="Open menu" onclick="toggleMobileNav()">☰</button>
+    </div>
   </nav>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
-    <img src="foto depan.jpg" alt="Profile Photo" width="300">
-    <p>Hello, I'm Misael Tampubolon, a beginner developer with a strong interest in technology.</p>
-    <p>Study Program: D3 Computer Technology</p>
-    <p>University: Del Institute of Technology</p>
-    <p>Gender: Male</p>
-  </section>
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="about section">
+      <div class="photo card">
+        <img src="foto depan.jpg" alt="Foto Misael"/>
+      </div>
+      <div class="content">
+        <h2>About Me</h2>
+        <p>Hello, I'm <strong>Misael Tampubolon</strong>, a beginner developer with strong interests in IoT, DevOps, and cybersecurity. I enjoy building practical systems — from embedded devices to cloud-deployed applications.</p>
+        <p><strong>Study Program:</strong> D3 Computer Technology — Del Institute of Technology</p>
+        <p class="muted">Gender: Male • Location: Siborong-Borong, North Tapanuli</p>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2>What I Can Do</h2>
-    <div class="project"><h3>🛠️ DevOps</h3><p>Build automated workflows using CI/CD, Docker, and Kubernetes to ensure faster and more stable application releases.</p></div>
-    <div class="project"><h3>💡 IoT</h3><p>Connect physical devices to the internet, creating smart and real-time interactive solutions.</p></div>
-    <div class="project"><h3>☁️ Cloud Computing</h3><p>Manage servers, storage, and applications in the cloud for scalable, cost-effective, and easily accessible solutions.</p></div>
-    <div class="project"><h3>🔧 Embedded Systems</h3><p>Design efficient microcontroller-based systems that are intelligent and directly embedded in devices.</p></div>
-    <div class="project"><h3>🌐 Networking</h3><p>Build reliable network infrastructure and communication protocols to ensure seamless system connectivity.</p></div>
-    <div class="project"><h3>💻 Web Development</h3><p>Create modern websites and applications using HTML, CSS, JavaScript, and a strong backend foundation.</p></div>
-  </section>
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+          <!-- Social links: ganti URL ke profilmu -->
+          <a href="https://github.com/misaeltpb" target="_blank" rel="noopener" class="small muted">GitHub</a>
+          <a href="https://www.linkedin.com/in/misael-tampubolon-4a9042298/" target="_blank" rel="noopener" class="small muted">LinkedIn</a>
+          <a href="mailto:misaeltampubolon9@gmail.com" class="small muted">Email</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="project">
-      <h3 class="judul">Del Institute of Technology</h3>
-      <p>D3 Computer Technology (2023 - 2026)</p>
-      <img src="gambar it del.jpg" alt="IT Del Photo">
-    </div>
-    <div class="project">
-      <h3 class="judul">SMA Negeri 1 Siborong-Borong</h3>
-      <p>Science Major (2019 - 2022)</p>
-      <img src="foto sma satu sbb.jpg" alt="SMA 1 Photo">
-    </div>
-  </section>
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2>What I Can Do</h2>
+      <div class="skills-grid">
+        <!-- Skill cards with progress bars -->
+        <div class="skill-card card">
+          <div class="skill-title"><strong>DevOps</strong><span class="small muted">CI/CD • Docker • Kubernetes</span></div>
+          <div class="bar" data-value="75"><i style="width:75%"></i></div>
+        </div>
+        <div class="skill-card card">
+          <div class="skill-title"><strong>IoT & Embedded</strong><span class="small muted">ESP32 • Arduino</span></div>
+          <div class="bar" data-value="70"><i style="width:70%"></i></div>
+        </div>
+        <div class="skill-card card">
+          <div class="skill-title"><strong>Cloud Computing</strong><span class="small muted">GCP / AWS basics</span></div>
+          <div class="bar" data-value="60"><i style="width:60%"></i></div>
+        </div>
+        <div class="skill-card card">
+          <div class="skill-title"><strong>Embedded Systems</strong><span class="small muted">C • RTOS basics</span></div>
+          <div class="bar" data-value="65"><i style="width:65%"></i></div>
+        </div>
+        <div class="skill-card card">
+          <div class="skill-title"><strong>Networking</strong><span class="small muted">DNS • Routing • Firewalls</span></div>
+          <div class="bar" data-value="68"><i style="width:68%"></i></div>
+        </div>
+        <div class="skill-card card">
+          <div class="skill-title"><strong>Web Dev</strong><span class="small muted">HTML • CSS • JS • PHP</span></div>
+          <div class="bar" data-value="62"><i style="width:62%"></i></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3 class="judul">PA1</h3>
-      <p>Food ordering application using QR Code.</p>
-      <img src="Picture1.png" alt="PA1">
-      <img src="Picture2.png" alt="PA1">
-      <img src="squence pa1.jpg" alt="PA1">
-    </div>
-    <div class="project">
-      <h3 class="judul">Embedded System</h3>
-      <p>Smart trash can based on Arduino.</p>
-      <img src="sistan.jpg" alt="Embedded System">
-      <img src="foto sistan.jpg" alt="Embedded System">
-    </div>
-    <div class="project">
-      <h3 class="judul">PA2</h3>
-      <p>Fish feeding and water quality monitoring system powered by solar energy.</p>
-      <img src="desain pa2.jpg" alt="PA2">
-      <img src="desain pa2 (2).jpg" alt="PA2">
-      <img src="use case diagram pa2.jpg" alt="PA2">
-      <img src="alat jadi.jpg" alt="PA2">
-    </div>
-    <div class="project">
-      <h3 class="judul">C Programming</h3>
-      <p>CRC program for data error detection.</p>
-      <img src="daspro.png" alt="CRC">
-    </div>
-  </section>
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+        <div class="card">
+          <h3 class="small" style="font-weight:800">Del Institute of Technology</h3>
+          <p class="muted">D3 Computer Technology (2023 - 2026)</p>
+          <img src="gambar it del.jpg" alt="IT Del Photo" style="margin-top:10px;border-radius:8px">
+        </div>
+        <div class="card">
+          <h3 class="small" style="font-weight:800">SMA Negeri 1 Siborong-Borong</h3>
+          <p class="muted">Science Major (2019 - 2022)</p>
+          <img src="foto sma satu sbb.jpg" alt="SMA 1 Photo" style="margin-top:10px;border-radius:8px">
+        </div>
+      </div>
+    </section>
 
-  <!-- CERTIFICATES -->
-  <section id="certificates">
-    <h2>Bootcamp Certificates</h2>
-    <div class="project">
-      <h3 class="judul">LEARN BASIC AI</h3>
-      <p>Studied the basic concepts of Artificial Intelligence, including machine learning algorithms, training data, and simple AI applications in daily life.</p>
-      <img src="belajar dasar ai.png" alt="AI Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">LEARN BASIC DEVOPS</h3>
-      <p>Understood the collaboration between developers and operations teams, and learned CI/CD, containerization, and automated deployment processes.</p>
-      <img src="belajar dasar dasar devops.png" alt="DevOps Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">CLOUD SECURITY FUNDAMENTALS</h3>
-      <p>Learned cloud-based system security basics, including data protection, encryption, access control, and best practices for cloud safety.</p>
-      <img src="cloud scurity fudumentals.png" alt="Cloud Security Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">COMPUTING TRACK</h3>
-      <p>Participated in computer technology training covering hardware, software, networking, and cybersecurity to strengthen computing fundamentals.</p>
-      <img src="computing track.png" alt="Computing Track Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">CYBER SECURITY FUNDAMENTALS BOOTCAMP</h3>
-      <p>Learned basic cybersecurity concepts, types of digital threats, ethical hacking techniques, and methods to protect systems from attacks.</p>
-      <img src="cyberscurity fudumentals.png" alt="Cyber Security Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">INTRO TO DATA ANALYTICS</h3>
-      <p>Introduced to data analysis, dataset processing, visualization, and data-driven decision-making using modern analytical tools.</p>
-      <img src="intro to data analytics.png" alt="Data Analytics Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">INTRO TO DIGITAL MARKETING</h3>
-      <p>Learned digital marketing strategies through social media, SEO, and online campaigns to increase product reach and engagement.</p>
-      <img src="intro to digital marketing.png" alt="Digital Marketing Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">INTRO TO SOFTWARE ENGINEERING</h3>
-      <p>Studied professional software development processes using agile methodology, version control (Git), and modern project management.</p>
-      <img src="intro to software enginer.png" alt="Software Engineering Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">SOFTWARE ENGINEER</h3>
-      <p>Learned basic cybersecurity concepts, common attacks, and defense techniques using ethical hacking tools.</p>
-      <img src="intro to softwareenginerrrrr.png" alt="Software Engineer Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">KNOW THE CYBER SECURITY ANALYST PROFESSION</h3>
-      <p>Discovered the roles and responsibilities of a cybersecurity analyst in detecting, analyzing, and responding to threats to networks and data.</p>
-      <img src="kenal profesi cyber security analyst.png" alt="Cyber Security Analyst Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">START PROGRAMMING WITH C</h3>
-      <p>Learned the basics of programming logic using C language, including variables, conditions, loops, and functions to build simple applications.</p>
-      <img src="memulai pemrograman dengan c.png" alt="C Programming Certificate">
-    </div>
-    <div class="project">
-      <h3 class="judul">NETWORK SECURITY FUNDAMENTALS</h3>
-      <p>Learned the fundamentals of network security, data encryption, firewall management, and attack mitigation such as sniffing, spoofing, and DDoS.</p>
-      <img src="network scurity fudumental.png" alt="Network Security Certificate">
-    </div>
-  </section>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card card">
+          <h3>PA1 — Food ordering app (QR Code)</h3>
+          <p class="muted">Aplikasi pesan makanan berbasis QR untuk sekolah/canteen.</p>
+          <img src="Picture1.png" alt="PA1" loading="lazy" onclick="openLightbox(this.src)" />
+          <img src="Picture2.png" alt="PA1" loading="lazy" onclick="openLightbox(this.src)" style="margin-top:8px"/>
+        </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
+        <div class="project-card card">
+          <h3>Embedded System — Smart Trash Can</h3>
+          <p class="muted">SISTEM pengelolaan sampah otomatis menggunakan sensor ultrasonik.</p>
+          <img src="sistan.jpg" alt="SISTAN" loading="lazy" onclick="openLightbox(this.src)"/>
+        </div>
+
+        <div class="project-card card">
+          <h3>PA2 — Fish feeding & monitoring</h3>
+          <p class="muted">Sistem pemberian pakan otomatis dan monitoring kualitas air (solar-powered).</p>
+          <img src="desain pa2.jpg" alt="PA2" loading="lazy" onclick="openLightbox(this.src)"/>
+          <img src="alat jadi.jpg" alt="PA2" loading="lazy" onclick="openLightbox(this.src)" style="margin-top:8px"/>
+        </div>
+
+        <div class="project-card card">
+          <h3>C Programming — CRC</h3>
+          <p class="muted">Program CRC untuk deteksi error pada data.</p>
+          <img src="daspro.png" alt="CRC" loading="lazy" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section">
+      <h2>Bootcamp Certificates</h2>
+      <div class="certs-grid">
+        <!-- setiap kartu sertifikat ringkas -->
+        <div class="cert-card card">
+          <img src="belajar dasar ai.png" alt="AI Certificate" style="width:120px;height:auto;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">LEARN BASIC AI</strong>
+          <p class="muted small">Dasar AI & ML.</p>
+        </div>
+        <div class="cert-card card">
+          <img src="belajar dasar dasar devops.png" alt="DevOps Certificate" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">LEARN BASIC DEVOPS</strong>
+          <p class="muted small">CI/CD • Container.</p>
+        </div>
+        <div class="cert-card card">
+          <img src="cloud scurity fudumentals.png" alt="Cloud Security" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">CLOUD SECURITY FUNDAMENTALS</strong>
+          <p class="muted small">Keamanan cloud dasar.</p>
+        </div>
+        <!-- tambahkan sisa sertifikat sesuai kebutuhan -->
+        <div class="cert-card card">
+          <img src="computing track.png" alt="Computing Track" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">COMPUTING TRACK</strong>
+          <p class="muted small">Dasar-dasar computing.</p>
+        </div>
+        <div class="cert-card card">
+          <img src="cyberscurity fudumentals.png" alt="Cyber Security" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">CYBER SECURITY FUNDAMENTALS BOOTCAMP</strong>
+          <p class="muted small">Pengantar keamanan siber.</p>
+        </div>
+        <div class="cert-card card">
+          <img src="intro to data analytics.png" alt="Data Analytics" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">INTRO TO DATA ANALYTICS</strong>
+          <p class="muted small">Dasar analisis data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
       <h2>Contact Me</h2>
-      <form>
-        <label>Name</label>
-        <input type="text" placeholder="Enter your name" required>
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" required>
-        <label>Message</label>
-        <textarea placeholder="Write your message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </section>
+      <div class="contact-wrap card">
+        <form id="contact-form">
+          <label class="small">Name</label>
+          <input type="text" name="from_name" placeholder="Enter your name" required>
+
+          <label class="small">Email</label>
+          <input type="email" name="reply_to" placeholder="Enter your email" required>
+
+          <label class="small">Message</label>
+          <textarea name="message" placeholder="Write your message" required></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Send</button>
+            <div id="form-msg" class="msg" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-container">
+    <div class="footer-inner">
       <div>
-        <h3>Misael Elul Tampubolon</h3>
-        <p>Email: misaeltampubolon9@gmail.com</p>
-        <p>Address: Siborong-Borong, North Tapanuli, North Sumatra</p>
+        <h3 style="margin-bottom:6px">Misael Elul Tampubolon</h3>
+        <div class="small">Email: misaeltampubolon9@gmail.com</div>
+        <div class="small">Address: Siborong-Borong, North Tapanuli, North Sumatra</div>
       </div>
       <div>
-        <h3>Links</h3>
-        <p><a href="#about">About Me</a></p>
-        <p><a href="#skills">Skills</a></p>
-        <p><a href="#education">Education</a></p>
-        <p><a href="#projects">Projects</a></p>
-        <p><a href="#certificates">Certificates</a></p>
-        <p><a href="#contact">Contact</a></p>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+          <a href="#about" class="small muted">About Me</a>
+          <a href="#skills" class="small muted">Skills</a>
+          <a href="#projects" class="small muted">Projects</a>
+          <a href="#contact" class="small muted">Contact</a>
+        </div>
       </div>
-    </div>
-    <div class="footer-credit">
-      <p>Made with ❤️ by Misael Elul Tampubolon © 2025</p>
+      <div class="center" style="min-width:180px">
+        <div class="small muted">Made with ❤️ by Misael Elul Tampubolon © 2025</div>
+      </div>
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)" role="dialog" aria-hidden="true">
+    <img id="lightbox-img" alt="Preview"/>
+  </div>
+
+  <!-- EMAILJS (cdn) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    /* ---------- Small helpers & state ---------- */
+    (function(){
+      // Theme: respect user preference or saved choice
+      const html = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(saved) html.setAttribute('data-theme', saved);
+      else html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+
+      // Theme toggle
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const current = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', current);
+        localStorage.setItem('theme', current);
+      });
+
+      // Mobile nav toggle (simple)
+      window.toggleMobileNav = function toggleMobileNav(){
+        const nav = document.getElementById('navLinks');
+        if(nav.style.display === 'flex') nav.style.display = 'none';
+        else nav.style.display = 'flex';
+      }
+    })();
+
+    /* ---------- Lightbox ---------- */
+    function openLightbox(src){
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+    }
+    function closeLightbox(e){
+      if(e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
+        const lb = document.getElementById('lightbox');
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden','true');
+      }
+    }
+    // close on Esc
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('open')});
+
+    /* ---------- EmailJS form (with feedback) ---------- */
+    (function(){
+      // Ganti USER_ID, SERVICE_ID, TEMPLATE_ID dengan milikmu dari emailjs
+      const EMAILJS_USER_ID = 'YOUR_EMAILJS_USER_ID';
+      const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+      const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+      if(window.emailjs) emailjs.init(EMAILJS_USER_ID);
+
+      const form = document.getElementById('contact-form');
+      const msgBox = document.getElementById('form-msg');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        msgBox.style.display = 'block';
+        msgBox.textContent = 'Mengirim...';
+        // fallback: if user didn't configure emailjs, show example
+        if(!window.emailjs || !EMAILJS_USER_ID.includes('YOUR')){
+          // Simulate success for now
+          setTimeout(()=> {
+            msgBox.textContent = 'Pesan berhasil dikirim (simulasi). Jika ingin benar-benar mengirim, ganti konfigurasi emailjs di script HTML.';
+            form.reset();
+          }, 800);
+          return;
+        }
+
+        const data = {
+          from_name: form.from_name.value,
+          reply_to: form.reply_to.value,
+          message: form.message.value
+        };
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
+          .then(function(){
+            msgBox.textContent = 'Pesan berhasil dikirim. Terima kasih!';
+            form.reset();
+          }, function(error){
+            console.error('EmailJS error', error);
+            msgBox.textContent = 'Gagal mengirim pesan. Silakan coba lagi atau hubungi via email langsung.';
+          });
+      });
+    })();
+
+    /* ---------- Small UX: close mobile nav on link click ---------- */
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.addEventListener('click', ()=> {
+        const nav = document.getElementById('navLinks');
+        if(window.innerWidth <= 800) nav.style.display = 'none';
+      });
+    });
+
+  </script>
 </body>
 </html>
