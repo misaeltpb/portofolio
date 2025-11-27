@@ -235,6 +235,23 @@ footer a:hover {
   align-items: center;
 }
 
+.social-links a.small.muted {
+    color: hsl(115, 87%, 47%);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-right: 12px;
+    transition: 0.3s ease;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  /* efek hover glow */
+  .social-links a.small.muted:hover {
+    color: #ffffff;
+    background: linear-gradient(90deg, #4e8df5, #6fb1ff);
+    box-shadow: 0 0 12px rgba(79, 140, 245, 0.7);
+    transform: translateY(-2px);
+  }
 /* ✨ Teks utama menyala halus */
 footer p {
   margin: 0;
@@ -309,7 +326,7 @@ footer li {
         <img src="logo.jpg" alt="Logo"/>
         <div>
           <div style="font-weight:800">Misael</div>
-          <div class="small">Developer • IoT • DevOps • CyberSec</div>
+          <div class="small">Developer • IoT • DevOps • CyberSec • frontend • Quality Assurance • Penetration Tester</div>
         </div>
       </div>
     </div>
@@ -338,15 +355,14 @@ footer li {
       </div>
       <div class="content">
         <h2>About Me</h2>
-        <p>Hello, I'm <strong>Misael Tampubolon</strong>, a beginner developer with strong interests in IoT, DevOps, and cybersecurity. I enjoy building practical systems — from embedded devices to cloud-deployed applications.</p>
-        <p><strong>Study Program:</strong> D3 Computer Technology — Del Institute of Technology</p>
-        <p class="muted">Gender: Male • Location: Siborong-Borong, North Tapanuli</p>
+       <p>Hi, I'm <strong>Misael Tampubolon</strong>, a budding developer with a strong interest in IoT, DevOps, and cybersecurity. I also possess skills in software development, front-end development, and Quality Assurance to ensure stable and bug-free application performance. I enjoy building practical systems — from embedded devices to cloud-deployed applications.</p>
+       <p><strong>Study Program:</strong> D3 Computer Technology — Del Institute of Technology</p>
+       <p class="muted">Gender: Male • Location: Siborong-Borong, North Tapanuli</p>
 
-        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-          <!-- Social links: ganti URL ke profilmu -->
+
+        <div class="social-links">
           <a href="https://github.com/misaeltpb" target="_blank" rel="noopener" class="small muted">GitHub</a>
           <a href="https://www.linkedin.com/in/misael-tampubolon-4a9042298/" target="_blank" rel="noopener" class="small muted">LinkedIn</a>
-          <a href="mailto:misaeltampubolon9@gmail.com" class="small muted">Email</a>
         </div>
       </div>
     </section>
@@ -365,15 +381,19 @@ footer li {
           <div class="bar" data-value="70"><i style="width:70%"></i></div>
         </div>
         <div class="skill-card card">
-          <div class="skill-title"><strong>Cloud Computing</strong><span class="small muted">GCP / AWS basics</span></div>
+          <div class="skill-title"><strong>Cloud Computing</strong><span class="small muted"> • GCP / AWS basics</span></div>
           <div class="bar" data-value="60"><i style="width:60%"></i></div>
         </div>
+        <div class="skill-card card">
+          <div class="skill-title"><strong>QA Testing</strong><span class="small muted">• Tester </span></div>
+          <div class="bar" data-value="70"><i style="width:70%"></i></div>
+        </div> 
         <div class="skill-card card">
           <div class="skill-title"><strong>Embedded Systems</strong><span class="small muted">C • RTOS basics</span></div>
           <div class="bar" data-value="65"><i style="width:65%"></i></div>
         </div>
         <div class="skill-card card">
-          <div class="skill-title"><strong>Networking</strong><span class="small muted">DNS • Routing • Firewalls</span></div>
+          <div class="skill-title"><strong>Networking</strong><span class="small muted">• DNS • Routing • Firewalls   </span></div>
           <div class="bar" data-value="68"><i style="width:68%"></i></div>
         </div>
         <div class="skill-card card">
@@ -409,12 +429,14 @@ footer li {
           <p class="muted">Aplikasi pesan makanan berbasis QR untuk sekolah/canteen.</p>
           <img src="Picture1.png" alt="PA1" loading="lazy" onclick="openLightbox(this.src)" />
           <img src="Picture2.png" alt="PA1" loading="lazy" onclick="openLightbox(this.src)" style="margin-top:8px"/>
+          <img src="squence pa1.jpg" alt="PA1" loading="lazy" onclick="openLightbox(this.src)" style="margin-top:8px"/>
         </div>
 
         <div class="project-card card">
           <h3>Embedded System — Smart Trash Can</h3>
           <p class="muted">SISTEM pengelolaan sampah otomatis menggunakan sensor ultrasonik.</p>
           <img src="sistan.jpg" alt="SISTAN" loading="lazy" onclick="openLightbox(this.src)"/>
+          <img src="foto sistan.jpg" alt="SISTAN" loading="lazy" onclick="openLightbox(this.src)" style="margin-top:8px"/>
         </div>
 
         <div class="project-card card">
@@ -468,6 +490,26 @@ footer li {
           <strong class="small">INTRO TO DATA ANALYTICS</strong>
           <p class="muted small">Dasar analisis data.</p>
         </div>
+         <div class="cert-card card">
+          <img src="kenal profesi cyber security analyst.png" alt="Cyber Scurity" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">cyber security analyst</strong>
+          <p class="muted small">cyber security analyst.</p>
+        </div>
+         <div class="cert-card card">
+          <img src="intro to software enginer.png" alt="Software Engineer" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">INTRO TO DATA ANALYTICS</strong>
+          <p class="muted small">Software Engineer.</p>
+        </div>
+         <div class="cert-card card">
+          <img src="operating system.png" alt="Data Analytics" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">operating system</strong>
+          <p class="muted small">operating system.</p>
+        </div>
+         <div class="cert-card card">
+          <img src="network scurity fudumental.png" alt="Data Analytics" style="width:120px;border-radius:6px" onclick="openLightbox(this.src)">
+          <strong class="small">network scurity fudumental</strong>
+          <p class="muted small">network scurity fudumental.</p>
+        </div>
       </div>
     </section>
 
@@ -493,6 +535,7 @@ footer li {
       </div>
     </section>
   </main>
+  <hr>
 
   <!-- FOOTER -->
   <footer>
