@@ -6,310 +6,270 @@
   <link rel="icon" type="image/png" href="logo.jpg"/>
   <title>Misael Elul Tampubolon — Cyber Security & Network Engineer Portfolio</title>
   <style>
-    /* ---------- Reset & Base ---------- */
-    :root{
-      --bg:#0b0b0d;
-      --card:#1f1f21;
-      --muted:#94a3b8;
-      --accent:#1abc9c;
-      --accent-2:#0ea5e9;
-      --text:#e6eef6;
-      --glass: rgba(255,255,255,0.03);
-    }
-    [data-theme="light"] {
-      --bg:#fafafa;
-      --card:#ffffff;
-      --muted:#475569;
-      --accent:#0ea5e9;
-      --accent-2:#10b981;
-      --text:#0f172a;
-      --glass: rgba(15,23,42,0.03);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-      transition: background 0.25s, color 0.25s;
-      scroll-behavior: smooth;
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+/* ---------- Reset & Base ---------- */
+:root{
+  --bg:#0b0b0d;
+  --card:#1f1f21;
+  --muted:#94a3b8;
+  --accent:#1abc9c;
+  --accent-2:#0ea5e9;
+  --text:#e6eef6;
+  --glass: rgba(255,255,255,0.03);
 
-    /* ---------- Header & Navbar ---------- */
-    header{
-      padding:32px 20px;
-      text-align:center;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      backdrop-filter: blur(4px);
-    }
-    header h1{font-size:28px;letter-spacing:0.6px}
-    header p{opacity:0.9;margin-top:8px;color:var(--muted)}
+  --footer-bg:#f1f5f9;
+  --footer-border:#e2e8f0;
+  --footer-text:#1e293b;
+  --footer-link:#007bff;
+  --footer-link-hover:#0056cc;
+}
+[data-theme="light"] {
+  --bg:#fafafa;
+  --card:#ffffff;
+  --muted:#475569;
+  --accent:#0ea5e9;
+  --accent-2:#10b981;
+  --text:#0f172a;
+  --glass: rgba(15,23,42,0.03);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto;
+  background: var(--bg);color: var(--text);
+  line-height:1.5;-webkit-font-smoothing:antialiased;
+  transition: background 0.25s, color 0.25s;
+  scroll-behavior:smooth;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
-    nav{
-      position:sticky;
-      top:0;
-      z-index:60;
-      background:var(--card);
-      border-bottom:1px solid rgba(255,255,255,0.03);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:10px 18px;
-      gap:10px;
-      box-shadow:0 6px 18px rgba(2,6,23,0.5);
-    }
-    .nav-left{display:flex;align-items:center;gap:12px}
-    .brand{
-      display:flex;gap:10px;align-items:center;
-    }
-    .brand img{width:40px;height:40px;border-radius:8px;object-fit:cover}
-    .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .nav-links a{
-      padding:8px 12px;border-radius:8px;font-weight:600;color:var(--text);
-      transition:all .18s;
-      background:transparent;
-    }
-    .nav-links a:hover{background:var(--glass);transform:translateY(-2px)}
-    .nav-ctas{display:flex;gap:8px;align-items:center}
-    .btn {
-      background:var(--accent);
-      color: #fff;
-      border:none;padding:8px 14px;border-radius:999px;font-weight:700;
-      cursor:pointer;transition:transform .15s, opacity .15s;
-    }
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
-    .btn:active{transform:scale(.98)}
-    .icon-btn{background:transparent;border:0;padding:6px;border-radius:8px;cursor:pointer}
+/* ---------- Header & Navbar ---------- */
+header{
+  padding:32px 20px;text-align:center;
+  background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+  backdrop-filter:blur(4px);
+}
+header h1{font-size:28px;letter-spacing:0.6px}
+header p{opacity:0.9;margin-top:8px;color:var(--muted)}
 
-    /* ---------- Layout ---------- */
-    main{max-width:1100px;margin:28px auto;padding:0 18px}
-    section{padding:28px 0}
-    h2{font-size:22px;margin-bottom:14px}
-    .grid{
-      display:grid;
-      gap:16px;
-    }
+nav{
+  position:sticky;top:0;z-index:60;
+  background:var(--card);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px;gap:10px;
+  box-shadow:0 6px 18px rgba(2,6,23,0.5);
+}
+.nav-left{display:flex;align-items:center;gap:12px}
+.brand{display:flex;gap:10px;align-items:center}
+.brand img{width:40px;height:40px;border-radius:8px;object-fit:cover}
+.nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.nav-links a{
+  padding:8px 12px;border-radius:8px;font-weight:600;color:var(--text);
+  transition:all .18s;background:transparent;
+}
+.nav-links a:hover{background:var(--glass);transform:translateY(-2px)}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.btn{
+  background:var(--accent);color:#fff;border:none;
+  padding:8px 14px;border-radius:999px;font-weight:700;
+  cursor:pointer;transition:transform .15s, opacity .15s;
+}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.btn:active{transform:scale(.98)}
+.icon-btn{background:transparent;border:0;padding:6px;border-radius:8px;cursor:pointer}
 
-    /* ---------- About ---------- */
-    .about{
-      display:flex;gap:20px;align-items:center;flex-wrap:wrap;
-      background:var(--card);padding:18px;border-radius:12px;
-      box-shadow:0 6px 16px rgba(2,6,23,0.45);
-    }
-    .about .photo{flex:0 0 300px;border-radius:12px;overflow:hidden}
-    .about .content{flex:1;min-width:220px}
-    .about p{margin:8px 0;color:var(--muted)}
+/* ---------- Layout ---------- */
+main{max-width:1100px;margin:28px auto;padding:0 18px}
+section{padding:28px 0}
+h2{font-size:22px;margin-bottom:14px}
+.grid{display:grid;gap:16px}
 
-    /* ---------- Skills ---------- */
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .skill-card{background:var(--glass);padding:14px;border-radius:10px}
-    .skill-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-    .bar{
-      height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden;
-    }
-    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px;width:0%}
+/* ---------- About ---------- */
+.about{
+  display:flex;gap:20px;align-items:center;flex-wrap:wrap;
+  background:var(--card);padding:18px;border-radius:12px;
+  box-shadow:0 6px 16px rgba(2,6,23,0.45);
+}
+.about .photo{flex:0 0 300px;border-radius:12px;overflow:hidden}
+.about .content{flex:1;min-width:220px}
+.about p{margin:8px 0;color:var(--muted)}
 
-    /* ---------- Projects & Certificates gallery ---------- */
-    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 14px rgba(2,6,23,0.45)}
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .project-card img{border-radius:8px;cursor:pointer}
-    .project-card h3{margin:8px 0;font-size:18px}
-    .project-card p{color:var(--muted);font-size:14px}
-
-    /* ---------- Certificates: compact grid ---------- */
-    .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .cert-card{display:flex;flex-direction:column;gap:8px;align-items:center;padding:12px;text-align:center}
-
-    /* ---------- Contact ---------- */
-    .contact-wrap {
-  max-width: 640px;
-  margin: auto;
+/* ---------- Skills ---------- */
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px
+}
+.skill-card{background:var(--glass);padding:14px;border-radius:10px}
+.skill-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.bar{
+  height:10px;background:rgba(255,255,255,0.06);
+  border-radius:999px;overflow:hidden;
+}
+.bar > i{
+  display:block;height:100%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  border-radius:999px;width:0%;
 }
 
-/* Form */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* ---------- Projects ---------- */
+.card{
+  background:var(--card);padding:14px;
+  border-radius:12px;
+  box-shadow:0 6px 14px rgba(2,6,23,0.45);
+}
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;
 }
 
-/* Label Section warna tipis */
-label {
-  font-weight: 600;
-  color: #333;
+/* FIX GAMBAR BESAR */
+.project-card img{
+  width:250%;
+  height:250px;          /* ❗ bisa ubah 180–220px */
+  object-fit:cover;
+  border-radius:50px;
+  cursor:pointer;
 }
 
-/* Input & Textarea */
-input, textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #f8fafc; /* Latar abu muda */
-  color: #333;
-  transition: 0.25s ease-in-out;
+/* ---------- Certificates ---------- */
+.certs-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px
+}
+.cert-card{
+  display:flex;flex-direction:column;gap:8px;
+  align-items:center;padding:12px;text-align:center;
 }
 
-/* Efek saat hover */
-input:hover, textarea:hover {
-  background: #eef2f7;
-  border-color: #bbb;
+/* ---------- Contact ---------- */
+.contact-wrap{max-width:640px;margin:auto}
+form{display:flex;flex-direction:column;gap:14px}
+label{font-weight:600;color:#333}
+input,textarea{
+  padding:12px;border-radius:8px;border:1px solid #ddd;
+  background:#f8fafc;color:#333;transition:0.25s;
+}
+input:hover,textarea:hover{background:#eef2f7;border-color:#bbb}
+input:focus,textarea:focus{
+  background:#fff;border-color:#4aa8ff;
+  box-shadow:0 0 6px rgba(80,160,255,0.5);outline:none;
+}
+textarea{min-height:120px;resize:vertical}
+.form-actions{display:flex;gap:10px;align-items:center}
+.msg{
+  padding:10px;border-radius:8px;background:rgba(0,0,0,0.25);
+  color:var(--text);display:none;
 }
 
-/* Efek saat focus */
-input:focus, textarea:focus {
-  background: #fff;
-  border-color: #4aa8ff;
-  box-shadow: 0 0 6px rgba(80, 160, 255, 0.5);
-  outline: none;
+/* ---------- Footer ---------- */
+/* ============================
+   PREMIUM MODERN FOOTER
+============================= */
+
+footer {
+    background: linear-gradient(135deg, #0d0d0d, #1b1b1b);
+    color: #e6e6e6;
+    padding: 60px 0 35px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
 }
 
-/* Textarea */
-textarea {
-  min-height: 120px;
-  resize: vertical;
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Button area */
-.form-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-/* Pesan notif */
-.msg {
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(0,0,0,0.25);
-  color: var(--text);
-  display: none;
-}
-
-
-    /* ---------- Footer ---------- */
-    footer {
-  margin-top: 28px;
-  padding: 30px 20px;
-
-  /* Background pakai variable */
-  background: var(--footer-bg);
-  border-top: 1px solid var(--footer-border);
-  color: var(--footer-text);
-
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.08);
-}
-
-.footer-inner {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: center;
-}
-
-footer a {
-  color: var(--footer-link);
-  font-weight: 600;
-  transition: 0.25s ease-in-out;
-}
-
-footer a:hover {
-  color: var(--footer-link-hover);
-  text-shadow: 0 0 6px rgba(0, 120, 255, 0.4);
-}
-
-
-.footer-inner {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: center;
-}
-
-.social-links a.small.muted {
-    color: hsl(115, 87%, 47%);
-    font-size: 0.9rem;
-    text-decoration: none;
-    margin-right: 12px;
-    transition: 0.3s ease;
-    padding: 4px 10px;
-    border-radius: 6px;
-  }
-
-  /* efek hover glow */
-  .social-links a.small.muted:hover {
+/* Logo / Title */
+.footer-title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
     color: #ffffff;
-    background: linear-gradient(90deg, #4e8df5, #6fb1ff);
-    box-shadow: 0 0 12px rgba(79, 140, 245, 0.7);
-    transform: translateY(-2px);
-  }
-/* ✨ Teks utama menyala halus */
-footer p {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #2c3e50;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
-/* ✨ Link dibuat lebih menyala & modern */
-footer a {
-  color: #007bff;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.2px;
-  transition: 0.25s ease-in-out;
+/* Description */
+.footer-desc {
+    max-width: 400px;
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.75;
+    margin-bottom: 30px;
 }
 
-footer a:hover {
-  color: #0056cc;
-  text-shadow: 0 0 6px rgba(0, 120, 255, 0.4);
+/* Quick links */
+.footer-links {
+    margin: 15px 0 30px;
 }
 
-/* Jika ada list */
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.footer-links a {
+    color: #cccccc;
+    margin: 0 14px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
 }
 
-footer li {
-  margin-bottom: 6px;
-  font-weight: 500;
-  color: #374151;
+.footer-links a:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Social icons */
+.footer-social a {
+    margin: 0 12px;
+    font-size: 22px;
+    color: #bbbbbb;
+    transition: 0.3s ease;
+    display: inline-block;
+    transform: translateY(0);
+}
+
+.footer-social a:hover {
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.1);
+    text-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+/* Divider line */
+.footer-divider {
+    width: 90%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 35px 0 20px;
+}
+
+/* Copyright */
+.footer-credit {
+    font-size: 13px;
+    opacity: 0.6;
+    letter-spacing: 0.5px;
 }
 
 
-    /* ---------- Modal Lightbox ---------- */
-    .lightbox{
-      position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:80;padding:20px;
-    }
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:92%;max-height:92%;border-radius:8px}
+/* ---------- Responsive ---------- */
+@media(max-width:800px){
+  .about{flex-direction:column}
+  .nav-links{display:none}
+}
+@media(min-width:801px){
+  .mobile-nav-toggle{display:none}
+}
 
-    /* ---------- Responsive ---------- */
-    @media (max-width:800px){
-      .about{flex-direction:column}
-      .nav-links{display:none}
-    }
-    @media (min-width:801px){
-      .mobile-nav-toggle{display:none}
-    }
+/* ---------- Helpers ---------- */
+.muted{color:var(--muted)}
+.center{text-align:center}
+.small{font-size:13px;color:var(--muted)}
+</style>
 
-    /* ---------- Tiny helpers ---------- */
-    .muted{color:var(--muted)}
-    .center{text-align:center}
-    .small{font-size:13px;color:var(--muted)}
-  </style>
 </head>
 <body>
 
@@ -452,6 +412,13 @@ footer li {
           <img src="daspro.png" alt="CRC" loading="lazy" onclick="openLightbox(this.src)"/>
         </div>
       </div>
+
+      <div class="project-card card">
+          <h3>TA - 7-in-1 Sensor-Based Soil Quality and Nutrient Monitoring System</h3>
+          <p class="muted">Alat ini merupakan perangkat portable yang dirancang untuk mengukur tujuh parameter penting tanah secara real-time.
+             Sistem ini memanfaatkan sensor tanah 7-in-1 berbasis RS485 Modbus, mikrokontroler ESP32, LCD 16x2, serta baterai Li-Ion 18650 sebagai sumber daya utama.</p>
+          <img src="foto tugas akhir.jpg" alt="PA2" loading="lazy" onclick="openLightbox(this.src)" style="margin-top:4px"/>
+        </div>
     </section>
 
     <!-- CERTIFICATES -->
@@ -561,7 +528,6 @@ footer li {
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox(event)" role="dialog" aria-hidden="true">
-    <img id="lightbox-img" alt="Preview"/>
   </div>
 
   <!-- EMAILJS (cdn) -->
