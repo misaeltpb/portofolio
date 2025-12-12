@@ -124,13 +124,18 @@ h2{font-size:22px;margin-bottom:14px}
 }
 
 /* FIX GAMBAR BESAR */
-.project-card img{
-  width:250%;
-  height:250px;          /* ❗ bisa ubah 180–220px */
+.project-card img {
+  width:100%;
+  height:220px;
   object-fit:cover;
-  border-radius:50px;
+  border-radius:12px;
   cursor:pointer;
+  transition: transform .2s;
 }
+.project-card img:hover {
+  transform: scale(1.03);
+}
+
 
 /* ---------- Certificates ---------- */
 .certs-grid{
@@ -649,7 +654,36 @@ footer {
         if(window.innerWidth <= 800) nav.style.display = 'none';
       });
     });
+    function openLightbox(src) {
+  // buat overlay
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.background = "rgba(0,0,0,0.85)";
+  overlay.style.display = "flex";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.style.zIndex = "9999";
+  overlay.style.cursor = "zoom-out";
 
+  // gambar besar
+  const img = document.createElement("img");
+  img.src = src;
+  img.style.maxWidth = "90%";
+  img.style.maxHeight = "90%";
+  img.style.borderRadius = "12px";
+  img.style.boxShadow = "0 0 25px rgba(255,255,255,0.3)";
+
+  overlay.appendChild(img);
+
+  // klik → tutup
+  overlay.onclick = () => overlay.remove();
+
+  document.body.appendChild(overlay);
+}
   </script>
 </body>
 </html>
